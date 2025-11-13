@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: stock-assistant
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python Stock_assistant_web.py
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ALPHA_VANTAGE_API_KEY
+        sync: false
+
