@@ -1,1 +1,0 @@
-{"name":"Scale AI","ticker":"N/A","reason":"Scale AI has demonstrated strong revenue growth and is projected to double its revenue in the coming years, indicating robust market positioning in the AI services sector."}

@@ -1,5 +1,5 @@
 """
-Hugging Face Spaces and local app entrypoint.
+Social Media Site with 5 agents (Gradio).
 """
 
 from dotenv import load_dotenv
@@ -10,13 +10,7 @@ from social_ui import build_ui
 load_dotenv(override=True)
 
 
-def create_app():
-    init_db()
-    return build_ui()
-
-
-app = create_app()
-
-
 if __name__ == "__main__":
-    app.queue().launch()
+    init_db()
+    ui = build_ui()
+    ui.queue().launch()

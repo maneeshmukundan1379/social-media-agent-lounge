@@ -1,60 +1,57 @@
-## Master AI Agentic Engineering -  build autonomous AI Agents
+# Social Media Agent Lounge
 
-### 6 week journey to code and deploy AI Agents with OpenAI Agents SDK, CrewAI, LangGraph, AutoGen and MCP
+A focused Gradio app where users sign up, create custom social agents, choose a discussion topic, and watch or control a multi-agent conversation.
 
-![Autonomous Agent](assets/autonomy.png)
+## Features
 
-_If you're looking at this in Cursor, please right click on the filename in the Explorer on the left, and select "Open preview", to view the formatted version._
+- login and signup with local SQLite storage
+- topic-first discussion setup instead of auto-start
+- built-in and custom agents with name, persona, tone, and icon
+- manual or auto-run turn controls
+- on-demand Chief Agent summaries
+- Gemini model support through Google's OpenAI-compatible endpoint
 
-I couldn't be more excited to welcome you! This is the start of your 6 week adventure into the powerful, astonishing and often surreal world of Agentic AI.
+## Project files
 
-### Before you begin
+- `app.py`: Hugging Face Spaces and local app entrypoint
+- `social_media_site.py`: simple local runner
+- `social_ui.py`: Gradio layout and UI event handlers
+- `social_agents.py`: discussion generation and summarization logic
+- `social_tools.py`: auth, SQLite helpers, and custom-agent storage
+- `requirements.txt`: minimal runtime dependencies
 
-I'm here to help you be most successful! Please do reach out if I can help, either in the platform or by emailing me direct (ed@edwarddonner.com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
-https://www.linkedin.com/in/eddonner/  
-And this is new to me, but I'm also trying out X/Twitter at [@edwarddonner](https://x.com/edwarddonner) - if you're on X, please show me how it's done 😂  
+## Environment variables
 
-### The not-so-dreaded setup instructions
+Required:
 
-Perhaps famous last words: but I really, truly hope that I've put together an environment that will be not too horrific to set up!
+- `GEMINI_API_KEY` or `GOOGLE_API_KEY`
 
-- Windows people, your instructions are [here](setup/SETUP-PC.md)
-- Mac people, yours are [here](setup/SETUP-mac.md)
-- Linux people, yours are [here](setup/SETUP-linux.md)
+Optional:
 
-Any problems, please do contact me.
+- `GEMINI_MODEL` default: `gemini-3.1-flash-lite-preview`
+- `GEMINI_BASE_URL` default: `https://generativelanguage.googleapis.com/v1beta/openai/`
 
-### Important notes for CrewAI week (Week 3)
+Copy `.env.example` to `.env` and fill in your key.
 
-Windows PC users: you will need to have checked the "gotcha #4" at the top of the [SETUP-PC](setup/SETUP-PC.md) instructions -- installing Microsoft Build Tools.  
-If you don't do this, then CrewAI will fail with an obscure error involving Chroma..
+## Run locally
 
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python social_media_site.py
+```
 
-Then, you will need to run this command in a Cursor Terminal in the project root directory in order to run the Crew commands:  
-`uv tool install crewai`   
-And in case you've used Crew before, it might be worth doing this to make sure you have the latest:  
-`uv tool upgrade crewai`  
+Or with `uv`:
 
-Then please keep in mind for Crew:
+```bash
+uv run python social_media_site.py
+```
 
-1. There are two ways that you can work on the CrewAI project in week 3. Either review the code for each project while I build it, and then do `crewai run` to see it in action. Or if you prefer to be more hands-on, then create your own Crew project from scratch to mirror mine; for example, create `my_debate` to go alongside `debate`, and write the code alongside me. Either approach works!  
-2. Windows users: there's a new issue that was recently introduced by one of Crew's libraries. Until this is fixed, you might get a "unicode" error when you try to run `crewai create crew`.  If that happens, please try running this command in the Terminal first: `$env:PYTHONUTF8 = "1"`  
-3. Gemini users: in addition to a key in your `.env` file for `GOOGLE_API_KEY`, you will need an identical key for `GEMINI_API_KEY`
+## Deploy to Hugging Face Spaces
 
-### Super useful resources
+Use `app.py` as the Space entrypoint and set these secrets/variables:
 
-- The course [resources](https://edwarddonner.com/2025/04/21/the-complete-agentic-ai-engineering-course/) with videos
-- Many essential guides in the [guides](guides/01_intro.ipynb) section
-- The [troubleshooting](setup/troubleshooting.ipynb) notebook
-
-### API costs - please read me!
-
-This course does involve making calls to OpenAI and other frontier models, requiring an API key and a small spend, which we set up in the SETUP instructions. If you'd prefer not to spend on API calls, there are cheaper alternatives like DeepSeek and free alternatives like using Ollama!
-
-Details are [here](guides/09_ai_apis_and_ollama.ipynb).
-
-Be sure to monitor your API costs to ensure you are totally happy with any spend. For OpenAI, the dashboard is [here](https://platform.openai.com/usage).
-
-### ABOVE ALL ELSE -
-
-Be sure to have fun with the course! You could not have picked a better time to be learning about Agentic AI. I hope you enjoy every single minute! And if you get stuck at any point - [contact me](https://www.linkedin.com/in/eddonner/).
+- secret: `GEMINI_API_KEY` or `GOOGLE_API_KEY`
+- variable: `GEMINI_MODEL` if you want a different Gemini model
+- variable: `GEMINI_BASE_URL` only if you need to override the default endpoint
