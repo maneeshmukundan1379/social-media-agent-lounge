@@ -1,0 +1,15 @@
+coding_task:
+  description: >
+    Write python code to achieve this assignment: {assignment}
+    Add the code to the output file before executing it.
+    You MUST then execute the code using the code execution tool and upodate  the ACTUAL execution output in the file.
+    Do not just describe what the code will output - you must run it and capture the real results.After executing the code, you MUST include the actual execution results in the output file, not just a description.
+    When loading environment variables from .env file, use load_dotenv() which will automatically find the .env file in the project root.
+ 
+  expected_output: >
+    A text file that includes:
+    1. The complete Python code
+    2. The ACTUAL execution output from running the code (not a description)
+    The output must be the real results from executing the code, not a description of what it would output.
+  agent: coder
+  output_file: output/code_and_output.txt

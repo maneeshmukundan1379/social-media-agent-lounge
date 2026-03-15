@@ -45,7 +45,7 @@ This should give you a path to node running on your WSL subsystem. Suppose it's 
 `/home/user/.nvm/versions/node/v22.18.0/bin`
 
 Then run this command, carefully replacing the path here with your one:   
-`!export PATH="/home/user/.nvm/versions/node/v22.18.0/bin:$PATH"`  
+``!export PATH="/home/user/.nvm/versions/node/v22.18.0/bin:$PATH"``  
 
 Also this, again carefully replacing the path with your one:  
 `os.environ["PATH"] = "/home/user/.nvm/versions/node/v22.18.0/bin:" + os.environ["PATH"]`

@@ -1,0 +1,40 @@
+research_task:
+  description: >
+    Conduct a thorough research on company {company}. IMPORTANT: Search for the most current information available, prioritizing data from 2025 or the most recent year available. Focus on:
+    1. Current company status and health (as of 2025)
+    2. Company Revenue, Profit, Earnings Per Share, Stock Price, Earnings Growth, Market Capitalization, etc. (latest available data from 2024-2025)
+    3. Company's IT budget (2025 or most recent)
+    4. IT projects (current and recent)
+    5. IT staff (current numbers)
+    6. IT infrastructure and application stack (current state)
+    7. IT opportunities
+    8. IT challenges 
+    9. IT VENDORS
+    10. IT SUPPLIERS 
+    11. IT CONTRACTS with end dates (current contracts)
+    12. Recent IT news and events (2024-2025)
+    13. Future IT outlook and potential developments  
+    Make sure to organize your findings in a structured format with clear sections. Always prioritize the most recent information and include dates for all data points.
+  expected_output: >
+    A comprehensive research document with well-organized sections covering
+    all the requested aspects of {company}. Include specific facts, figures,
+    and examples where relevant. All data should be from 2025 or the most recent year available, with dates clearly indicated.
+  agent: researcher
+
+analysis_task:
+  description: >
+    Analyze the research findings and create a comprehensive report on {company}.
+    Your report should:
+    1. Begin with an executive summary
+    2. Include all key information from the research
+    3. Provide insightful analysis of future opportunitiess where an IT service provider like Persistent Systems can engage
+    
+  expected_output: >
+    A polished, professional report on {company} that presents the research
+    findings with added analysis and insights. There should be a section on future opportunitiess where an IT service provider like Persistent Systems can engage. 
+    The report should be well-structured and formatted in a professional, easy-to-read style with clear headings.
+    with an executive summary, main sections, and conclusion.
+  agent: analyst
+  context:
+    - research_task
+  output_file: output/report.md

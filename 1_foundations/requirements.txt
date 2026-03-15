@@ -4,3 +4,9 @@ gradio
 pypdf
 openai
 openai-agents
+yfinance
+yahooquery
+pandas
+matplotlib
+pillow
+urllib3
