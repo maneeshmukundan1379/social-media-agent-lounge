@@ -252,8 +252,8 @@ def login_action(identifier: str, password: str, auth_state: dict) -> tuple:
         return (
             msg,
             auth_state,
-            gr.update(visible=True),
-            gr.update(visible=False),
+            gr.update(),
+            gr.update(),
             gr.update(),
             gr.update(),
             gr.update(),
@@ -286,8 +286,8 @@ def login_action(identifier: str, password: str, auth_state: dict) -> tuple:
     return (
         msg,
         auth_state,
-        gr.update(visible=False),
-        gr.update(visible=True),
+        gr.update(),
+        gr.update(),
         f"## Welcome, {identifier.strip()}\nSet up the next discussion before anything starts.",
         _status_message("Pick a topic and roster, then click Start Discussion."),
         gr.update(choices=_agent_selector_choices(available_agents), value=_selected_labels(available_agents, selected_names)),
@@ -717,8 +717,8 @@ def logout_action(auth_state: dict) -> tuple:
     return (
         "Logged out.",
         {"authenticated": False, "username": "", "user_id": None},
-        gr.update(visible=True),
-        gr.update(visible=False),
+        gr.update(),
+        gr.update(),
         "",
         "",
         gr.update(choices=[], value=[]),
@@ -769,7 +769,7 @@ def build_ui() -> gr.Blocks:
                         signup_btn = gr.Button("Create Account", variant="primary")
                         signup_status = gr.Markdown("")
 
-        with gr.Column(visible=False, elem_classes=["app-shell"]) as app_panel:
+        with gr.Column(visible=True, elem_classes=["app-shell"]) as app_panel:
             welcome_md = gr.Markdown("")
             app_status = gr.Markdown(_status_message("Pick a topic and a roster to begin."))
 
