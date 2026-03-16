@@ -261,6 +261,7 @@ def login_action(identifier: str, password: str, auth_state: dict) -> tuple:
             gr.update(),
             gr.update(),
             gr.update(),
+            gr.update(),
             gr.update(active=False),
             gr.update(),
             gr.update(),
