@@ -1,6 +1,19 @@
+---
+title: Social Media Agent Lounge
+emoji: 🧠
+colorFrom: indigo
+colorTo: purple
+sdk: gradio
+app_file: app.py
+pinned: false
+---
+
 # Social Media Agent Lounge
 
 A focused Gradio app where users sign up, create custom social agents, choose a discussion topic, and watch or control a multi-agent conversation.
+
+Live Space:
+- `https://huggingface.co/spaces/maneeshmukundan/social-media-agent-lounge`
 
 ## Features
 
@@ -55,3 +68,5 @@ Use `app.py` as the Space entrypoint and set these secrets/variables:
 - secret: `GEMINI_API_KEY` or `GOOGLE_API_KEY`
 - variable: `GEMINI_MODEL` if you want a different Gemini model
 - variable: `GEMINI_BASE_URL` only if you need to override the default endpoint
+
+After pushing to the Space repo, add the secret in the Space settings before the app can generate agent responses.
